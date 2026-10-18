@@ -3,7 +3,7 @@ title: Programmable loan contracts
 description: The agreements server drafts the credit agreement from a template, collects wallet signatures, gives the hash to anchor on open_line, and exports evidence. MCP tools and routes.
 ---
 
-Each credit line carries the hash of a signed credit agreement. The agreement is produced by the agreements server in `mcp/`: an MCP server (Bun and Hono) that lets an AI agent draft the agreement from a template and follow it through signature and anchoring. The agent holds no keys and never signs: every signature and every on-chain act comes from the party's own wallet.
+Each credit line carries the hash of a signed credit agreement. The agreement is produced by the agreements server (Soft.Law's `softlaw-backend`): an MCP server (Bun and Hono) that lets an AI agent draft the agreement from a template and follow it through signature and anchoring. The agent holds no keys and never signs: every signature and every on-chain act comes from the party's own wallet.
 
 :::caution[Pilot templates]
 The templates are pilot versions pending legal review. Not legal advice.
@@ -29,7 +29,7 @@ The wallet signature records the document in the credit file. It does **not** re
 | `credit-agreement` | 0.1.0 | A simple credit agreement between a lender and a borrower. |
 | `credit-agreement` | 0.2.0 | An optional support program: eligibility letter and interest subsidy. Chosen by default when any support field is given. |
 
-Fields, clauses, findings and rendered samples are in `mcp/docs/contracts` in the repository.
+Fields, clauses, findings and rendered samples are in `docs/contracts` in the agreements server repository (`soft-law/softlaw-backend`).
 
 ## MCP tools
 

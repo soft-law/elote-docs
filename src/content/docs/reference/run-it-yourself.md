@@ -3,7 +3,7 @@ title: Run it yourself
 description: Build and test the program, run a local validator and the demo script, run the app end to end, and the environment variables each part reads.
 ---
 
-The repository is [soft-law/elote-baby](https://github.com/soft-law/elote-baby). The program and the demo script use npm at the root; `web/`, `mcp/` and these docs use Bun.
+The program and the demo script are in [soft-law/elote-contracts](https://github.com/soft-law/elote-contracts) (npm at the root); the app is `soft-law/elote-web` and these docs `soft-law/elote-docs` (both Bun). The hackathon submission, with the app and the Meteora launch, is frozen at https://github.com/soft-law/elote-baby/tree/colosseum-2026.
 
 ## Toolchain
 
@@ -13,7 +13,7 @@ The repository is [soft-law/elote-baby](https://github.com/soft-law/elote-baby).
 | Anchor CLI | 1.1.2 |
 | Solana CLI | 3.1.x |
 | Node | 20.18 or later |
-| Bun | for `web/`, `mcp/` and `docs-site/` |
+| Bun | for `elote-web`, the agreements server and these docs |
 
 ## Build and test the program
 
@@ -73,7 +73,7 @@ bun run build
 PLAYWRIGHT_FROM=/path/with/playwright bun run e2e
 ```
 
-`web/scripts/e2e.mjs` starts a throwaway validator with the built program, runs the demo script, gives a fresh test wallet test tokens and an approved line, builds the app against that pool, and drives Chromium with Playwright: connect, pool figures, deposit 100 tMXN, redeem 10 shares, activity, draw and repay 50 on the wallet's line, then each page at 375 px. It stops every process on exit, also on Ctrl-C, and deletes the test build. Needs `solana-test-validator` on `PATH` with port 8899 unused, the program built into `target/deploy`, the root's `node_modules`, Bun, and Playwright with Chromium.
+`scripts/e2e.mjs` in `elote-web` starts a throwaway validator with the built program, runs the demo script, gives a fresh test wallet test tokens and an approved line, builds the app against that pool, and drives Chromium with Playwright: connect, pool figures, deposit 100 tMXN, redeem 10 shares, activity, draw and repay 50 on the wallet's line, then each page at 375 px. It stops every process on exit, also on Ctrl-C, and deletes the test build. Needs `solana-test-validator` on `PATH` with port 8899 unused, the program built into `target/deploy`, the root's `node_modules`, Bun, and Playwright with Chromium.
 
 ## Agreements server
 

@@ -19,7 +19,7 @@ Writing rules: English only for now; short pages, tables for reference data; exp
 do not restate code. The words banned on the landing (`web/tests/i18n.test.ts`) are banned here
 too, in prose; program identifiers and the program's own error messages are quoted as they are.
 
-Deploy: a Vercel project with Root Directory `docs-site`. `vercel.json` sets the Astro preset,
+Deploy: a Vercel project on this repository (Root Directory: the repo root). `vercel.json` sets the Astro preset,
 `bun install`, `bun run build` and `dist`.
 
 > Devnet demo with test assets. Not an offer of securities.
