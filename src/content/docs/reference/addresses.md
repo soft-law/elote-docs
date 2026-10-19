@@ -16,7 +16,7 @@ The program's IDL is published on devnet with the program.
 
 ## Deriving the other accounts
 
-The vault, the dead-shares account and every credit line are PDAs of the program, derived from the pool address. See [Program reference](/reference/program#accounts-and-pdas). The generated client in `clients/js` has a `find…Pda` helper for each.
+The vault, the dead-shares account and every credit line are PDAs of the program, derived from the pool address. See [Program reference](/reference/program#accounts-and-pdas). The generated client (`@softlaw/elote-pool-client`) has a `find…Pda` helper for each.
 
 ## Deployment shape
 

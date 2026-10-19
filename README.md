@@ -11,12 +11,12 @@ bun run preview  # serves dist/ (search works here, not in dev)
 ```
 
 Pages live in `src/content/docs/`; the sidebar order is set in `astro.config.mjs`. Brand
-colours and fonts are in `src/styles/brand.css`, taken from `web/src/index.css`. The footer note
+colours and fonts are in `src/styles/brand.css`, taken from `src/index.css` in the `elote-web` repository (private). The footer note
 is in `src/components/Footer.astro`. Favicons and the corn mark are copies of the files in
-`web/public/`.
+`elote-web`'s `public/`.
 
 Writing rules: English only for now; short pages, tables for reference data; explain behaviour,
-do not restate code. The words banned on the landing (`web/tests/i18n.test.ts`) are banned here
+do not restate code. The words banned on the landing (`tests/i18n.test.ts` in `elote-web`) are banned here
 too, in prose; program identifiers and the program's own error messages are quoted as they are.
 
 Deploy: a Vercel project on this repository (Root Directory: the repo root). `vercel.json` sets the Astro preset,

@@ -29,7 +29,7 @@ The wallet signature records the document in the credit file. It does **not** re
 | `credit-agreement` | 0.1.0 | A simple credit agreement between a lender and a borrower. |
 | `credit-agreement` | 0.2.0 | An optional support program: eligibility letter and interest subsidy. Chosen by default when any support field is given. |
 
-Fields, clauses, findings and rendered samples are in `docs/contracts` in the agreements server repository (`soft-law/softlaw-backend`).
+Fields, clauses, findings and rendered samples are in `docs/contracts` in the agreements server repository (`soft-law/softlaw-backend`, private).
 
 ## MCP tools
 

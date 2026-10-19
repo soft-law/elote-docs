@@ -21,7 +21,7 @@ export default defineConfig({
 				{ tag: 'meta', attrs: { name: 'theme-color', content: '#131313' } },
 			],
 			customCss: ['./src/styles/brand.css'],
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/soft-law/elote-baby' }],
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/soft-law/elote-contracts' }],
 			lastUpdated: true,
 			// Explicit order: the pages read as a path, from what the pool is to how to run it.
 			sidebar: [

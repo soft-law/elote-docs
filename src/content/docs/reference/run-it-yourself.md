@@ -58,8 +58,11 @@ Wallets are generated into `.demo-keys/` (ignored by git). Only addresses are pr
 
 ## Pool app
 
+The app is the `elote-web` repository (private). It depends on the published client
+`@softlaw/elote-pool-client`, so it needs no checkout of the program to build.
+
 ```sh
-cd web
+git clone git@github.com:soft-law/elote-web.git && cd elote-web
 bun install
 cp .env.example .env.local   # then fill in the VITE_* values
 bun run dev                  # http://localhost:5173, the app at /app
@@ -70,20 +73,16 @@ bun run build
 ### End to end against a local validator
 
 ```sh
-PLAYWRIGHT_FROM=/path/with/playwright bun run e2e
+ELOTE_CONTRACTS_DIR=/path/to/elote-contracts PLAYWRIGHT_FROM=/path/with/playwright bun run e2e
 ```
 
-`scripts/e2e.mjs` in `elote-web` starts a throwaway validator with the built program, runs the demo script, gives a fresh test wallet test tokens and an approved line, builds the app against that pool, and drives Chromium with Playwright: connect, pool figures, deposit 100 tMXN, redeem 10 shares, activity, draw and repay 50 on the wallet's line, then each page at 375 px. It stops every process on exit, also on Ctrl-C, and deletes the test build. Needs `solana-test-validator` on `PATH` with port 8899 unused, the program built into `target/deploy`, the root's `node_modules`, Bun, and Playwright with Chromium.
+`scripts/e2e.mjs` in `elote-web` starts a throwaway validator with the built program, runs the demo script, gives a fresh test wallet test tokens and an approved line, builds the app against that pool, and drives Chromium with Playwright: connect, pool figures, deposit 100 tMXN, redeem 10 shares, activity, draw and repay 50 on the wallet's line, then each page at 375 px. It stops every process on exit, also on Ctrl-C, and deletes the test build. Needs `solana-test-validator` on `PATH` with port 8899 unused, an `elote-contracts` checkout with the program built and `npm install` done (`ELOTE_CONTRACTS_DIR`, default `../contracts`), Bun, and Playwright with Chromium.
 
 ## Agreements server
 
-```sh
-cd mcp
-bun install
-bun run create-key my-account laptop   # prints the API key once
-bun run dev                            # http://127.0.0.1:3010/mcp
-bun test
-```
+The agreements server is Soft.Law's `softlaw-backend` (private), which serves the faucet, the
+agreement summaries and the MCP endpoint for every Soft.Law product. Its setup, API keys and
+environment are documented in that repository.
 
 ## Environment variables
 
@@ -99,12 +98,7 @@ Names only; see each `.env.example`. Never put a key in a `VITE_*` variable: eve
 | | `VITE_API_URL` | Base URL of the agreements server (faucet and agreement summaries). |
 | | `VITE_EXPLORER_CLUSTER` | `devnet`, `testnet`, `mainnet-beta` or `localnet`. |
 | | `VITE_TEST_WALLET`, `VITE_TEST_WALLET_SECRET` | Test builds only (the e2e run). Leave unset in real builds. |
-| Agreements server | `PORT`, `HOST` | Where it listens (3010, 127.0.0.1). |
-| | `AGREEMENTS_DB` | SQLite file for agreements, signatures, anchors and API key digests. |
-| | `APP_BASE_URL` | Where sign links point. |
-| | `API_BASE_URL` | Public URL of the server, used in evidence links. Set it in every deployment. |
-| | `CORS_ORIGINS` | Origins allowed to call `/api/*`; include the pool app's origin. |
-| | `FAUCET_KEYPAIR`, `FAUCET_ASSET_MINT`, `SOLANA_RPC_URL` | Devnet faucet key, the tMXN address it sends, and its RPC. The faucet key is never the pool admin key. |
+| Agreements server | see `softlaw-backend` | The faucet key is never the pool admin key. |
 
 ## Deployment order
 

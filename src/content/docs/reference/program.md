@@ -3,7 +3,7 @@ title: Program reference
 description: The elote_pool Solana program. Instructions, accounts, PDAs, errors 6000 to 6018 and events.
 ---
 
-`elote_pool` is an Anchor 1.1.2 program on Solana. Program id `BGdJQxxJoHiLH2VS6HAGHe5kQuKKq9dwrPeX7DEEwYyM`. A TypeScript client generated from the IDL with Codama lives in `clients/js`.
+`elote_pool` is an Anchor 1.1.2 program on Solana. Program id `BGdJQxxJoHiLH2VS6HAGHe5kQuKKq9dwrPeX7DEEwYyM`. A TypeScript client generated from the IDL with Codama lives in [`clients/js`](https://github.com/soft-law/elote-contracts/tree/main/clients/js) and is published as `@softlaw/elote-pool-client`.
 
 ## Instructions
 
@@ -44,7 +44,7 @@ The admin is part of the pool's address, so it cannot be changed. Both `Pool` an
 | | 14..22 | `late_collected`, u64 LE |
 | | 22..30 | `late_paid_until`, i64 LE: late interest is settled up to this time |
 
-A version-1 line has all 32 bytes at zero. `clients/js/src/schedule.ts` reads them and computes arrears exactly as the program does.
+A version-1 line has all 32 bytes at zero. `schedule.ts` in the client (`@softlaw/elote-pool-client`) reads them and computes arrears exactly as the program does.
 
 Line statuses, in on-chain order: `Approved`, `Active`, `Repaid`, `WrittenOff`, `InCollection`.
 
