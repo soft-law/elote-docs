@@ -3,7 +3,7 @@ title: Program reference
 description: The elote_pool Solana program. Instructions, accounts, PDAs, errors 6000 to 6018 and events.
 ---
 
-`elote_pool` is an Anchor 1.1.2 program on Solana. Program id `BGdJQxxJoHiLH2VS6HAGHe5kQuKKq9dwrPeX7DEEwYyM`. A TypeScript client generated from the IDL with Codama lives in [`clients/js`](https://github.com/soft-law/elote-contracts/tree/main/clients/js) and is published as `@softlaw/elote-pool-client`.
+`elote_pool` is an Anchor 1.2.1 program on Solana. Program id `BGdJQxxJoHiLH2VS6HAGHe5kQuKKq9dwrPeX7DEEwYyM`. A TypeScript client generated from the IDL with Codama lives in [`clients/js`](https://github.com/soft-law/elote-contracts/tree/main/clients/js) and is published as `@softlaw/elote-pool-client`.
 
 ## Instructions
 

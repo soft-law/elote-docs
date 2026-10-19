@@ -10,15 +10,15 @@ The program and the demo script are in [soft-law/elote-contracts](https://github
 | Tool | Version |
 |---|---|
 | Rust | 1.89.0 (`rust-toolchain.toml`) |
-| Anchor CLI | 1.1.2 |
-| Solana CLI | 3.1.x |
+| Anchor CLI | 1.2.1 (`avm install 1.2.1 && avm use 1.2.1`; Anchor now lives at [otter-sec/anchor](https://github.com/otter-sec/anchor)) |
+| Solana CLI | 4.1.2 (`agave-install init 4.1.2`) |
 | Node | 20.18 or later |
 | Bun | for `elote-web`, the agreements server and these docs |
 
 ## Build and test the program
 
 ```sh
-NO_DNA=1 anchor build            # target/deploy/elote_pool.so and target/idl/elote_pool.json
+NO_DNA=1 anchor build --ignore-keys --arch v0   # target/deploy/elote_pool.so and target/idl/elote_pool.json
 cargo test -p elote_pool         # unit tests and LiteSVM integration tests against the built .so
 npm install
 npm run codama                   # regenerates clients/js/src/generated from the IDL
@@ -26,7 +26,7 @@ npm run check:client             # fails if the committed client differs from th
 npm run typecheck
 ```
 
-The integration tests run the compiled program in LiteSVM, which moves the clock by months to test installments, late interest and collection.
+The integration tests run the compiled program in LiteSVM, which moves the clock by months to test installments, late interest and collection. `--ignore-keys` skips Anchor 1.2's check against the random build keypair (never run `anchor keys sync` with it), and `--arch v0` keeps the SBPF v0 format the deployed program and the test runtime use.
 
 ## Local validator
 
